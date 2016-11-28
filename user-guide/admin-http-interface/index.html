@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home - Finatra</title>
+    <title>Admin HTTP Interface - Finatra</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:800">
     <link rel="stylesheet" type="text/css" href="/finatra/javascripts/highlight/styles/idea.css">
@@ -95,32 +95,63 @@
       <div id="main">
         <section class="page">
 
-          
+          <div>
+<article role="article">
+  <ol class="breadcrumb">
+  <li><a href="/finatra/user-guide">User Guide</a></li>
+  <li class="active">HTTP Admin Interface</li>
+</ol>
 
-<h4>Latest news: <a href="/finatra/blog/2016/11/28/announcing-release-2-dot-6-0-and-techempower-benchmark-results/">Announcing Finatra release 2.6.0 and TechEmpower Round 13 Results!</a></h4>
-<div class="jumbotron">
-  <h1 class="brand"><!--img src="/finatra/images/finatra_transparent.gif" style="height:96px; width:96px"/-->Finatra&nbsp;</h1>
-  <h3>Fast, testable, Scala services built on <a href="http://twitter.github.io/twitter-server/">TwitterServer</a> and <a href="https://twitter.github.io/finagle">Finagle</a>.</h3>
-  <div class="row">
-    <div class="col-md-3">
-      <br/>
-      <h4>Features:</h4>
-      <ul>
-        <li>Production use <a href="https://twitter.com">@Twitter</a></li>
-        <li>~50x faster performance<br /><font size="3">(vs. v1.6.0)</font>  </li>
-        <li>Fully Async using <a href="https://twitter.github.io/effectivescala/#Concurrency-Futures">Futures</a></li>
-        <li><a href="https://github.com/spullara/mustache.java">Mustache</a> Templates</li>
-        <li>Detailed <a href="http://twitter.github.io/twitter-server/Features.html#metrics">Metrics</a><font size="3">&nbsp;(p99, p999, etc.)</font></li>
-        <li><a href="https://twitter.github.io/twitter-server/Features.html#http-admin-interface">Profile/Debug</a> over HTTP</li>
-        <li>SSL/TLS Support</li>
-      </ul>
-      <a href="/finatra/user-guide" class="btn btn-primary btn-large">Get Started!&nbsp;»</a>
-    </div>
-    <div class="col-md-7">
-      <img src="/finatra/images/finatra_example.png" height="394px" width="670px"/>
-    </div>
-  </div>
+
+<p>All Finatra servers are <a href="https://github.com/twitter/twitter-server">TwitterServer</a>-based servers and thus it helps to understand some basics of a <a href="https://github.com/twitter/twitter-server">TwitterServer</a>.</p>
+
+<h3>HTTP Admin Interface</h3>
+
+<p><a href="https://github.com/twitter/twitter-server">TwitterServer</a>-based servers have the option to start an <a href="https://twitter.github.io/twitter-server/Features.html#admin-http-interface">HTTP Admin Interface</a> bound to a port configurable via the <code>-admin.port</code> flag. If you want to serve an external interface this will be bound to a separate port configurable via either the <code>-http.port</code>, <code>-https.port</code> or <code>-thrift.port</code> flags, depending.</p>
+
+<p>Some deployment environments such as <a href="https://www.heroku.com/">Heroku</a>, <a href="https://www.appfog.com/">AppFog</a>, and <a href="https://www.openshift.com">OpenShift</a> only allow a single port to be used when deploying an application. In these cases, you can programmatically disable the TwitterServer <a href="https://twitter.github.io/twitter-server/Features.html#http-admin-interface">HTTP Admin Interface</a> as such:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">class</span> <span class="nc">ExampleServer</span> <span class="k">extends</span> <span class="nc">HttpServer</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">override</span> <span class="k">val</span> <span class="n">disableAdminHttpServer</span> <span class="k">=</span> <span class="kc">true</span>
+</span><span class='line'>  <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<div></div>
+
+
+<p>Since the <code>-admin.port</code> flag is currently still required to have a value by <a href="https://github.com/twitter/twitter-server">TwitterServer</a> you should set the <code>-admin.port</code> and your external interface port e.g., <code>-http.port</code> flags to the <strong>same value</strong> in addition to specifying <code>override val disableAdminHttpServer = true</code> as above.</p>
+
+<p>For a working example of disabling the TwitterServer <a href="https://twitter.github.io/twitter-server/Features.html#http-admin-interface">HTTP Admin Interface</a>, see the <a href="https://www.heroku.com/">Heroku</a> <a href="https://github.com/twitter/finatra/tree/master/examples/hello-world-heroku">hello-world example</a>.</p>
+
+<p><nav>
+  <ul class="pager">
+    <li class="previous"><a href="/finatra/user-guide/build-new-thrift-server"><span aria-hidden="true">&larr;</span>&nbsp;Building&nbsp;a&nbsp;New&nbsp;Thrift&nbsp;Server</a></li>
+    <li class="next"><a href="/finatra/user-guide/testing">Testing&nbsp;<span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav></p>
+
+  
+    <footer>
+      
+      
+    </footer>
+  
+</article>
+
 </div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
 
 
         </section>

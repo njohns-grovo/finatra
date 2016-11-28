@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home - Finatra</title>
+    <title>Building Clients - Finatra</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:800">
     <link rel="stylesheet" type="text/css" href="/finatra/javascripts/highlight/styles/idea.css">
@@ -95,32 +95,49 @@
       <div id="main">
         <section class="page">
 
-          
+          <div>
+<article role="article">
+  <ol class="breadcrumb">
+  <li><a href="/finatra/user-guide">User Guide</a></li>
+  <li class="active">Building Clients</li>
+</ol>
 
-<h4>Latest news: <a href="/finatra/blog/2016/11/28/announcing-release-2-dot-6-0-and-techempower-benchmark-results/">Announcing Finatra release 2.6.0 and TechEmpower Round 13 Results!</a></h4>
-<div class="jumbotron">
-  <h1 class="brand"><!--img src="/finatra/images/finatra_transparent.gif" style="height:96px; width:96px"/-->Finatra&nbsp;</h1>
-  <h3>Fast, testable, Scala services built on <a href="http://twitter.github.io/twitter-server/">TwitterServer</a> and <a href="https://twitter.github.io/finagle">Finagle</a>.</h3>
-  <div class="row">
-    <div class="col-md-3">
-      <br/>
-      <h4>Features:</h4>
-      <ul>
-        <li>Production use <a href="https://twitter.com">@Twitter</a></li>
-        <li>~50x faster performance<br /><font size="3">(vs. v1.6.0)</font>  </li>
-        <li>Fully Async using <a href="https://twitter.github.io/effectivescala/#Concurrency-Futures">Futures</a></li>
-        <li><a href="https://github.com/spullara/mustache.java">Mustache</a> Templates</li>
-        <li>Detailed <a href="http://twitter.github.io/twitter-server/Features.html#metrics">Metrics</a><font size="3">&nbsp;(p99, p999, etc.)</font></li>
-        <li><a href="https://twitter.github.io/twitter-server/Features.html#http-admin-interface">Profile/Debug</a> over HTTP</li>
-        <li>SSL/TLS Support</li>
-      </ul>
-      <a href="/finatra/user-guide" class="btn btn-primary btn-large">Get Started!&nbsp;»</a>
-    </div>
-    <div class="col-md-7">
-      <img src="/finatra/images/finatra_example.png" height="394px" width="670px"/>
-    </div>
-  </div>
+
+<h2>Basics</h2>
+
+<hr />
+
+<p>When writing your server there may be times you want to make calls to other services. Finatra is built on-top of <a href="https://github.com/twitter/finagle">Finagle</a> and as such you can always use Finagle directly to create <a href="http://twitter.github.io/finagle/guide/Clients.html">clients</a> to other services. With that, Finatra has a few utilities to aid in making some of the more common clients you may want to create in your servers.</p>
+
+<p>In Finagle, a client and a server are always of type <a href="https://github.com/twitter/finagle/blob/develop/finagle-core/src/main/scala/com/twitter/finagle/Service.scala"><code>c.t.finagle.Service[Req, Rep]</code></a>; where a <code>Service</code> is an asynchronous function from a <code>Rep</code> to a <code>Future[Rep]</code>. For HTTP, <code>Req</code> is generally of type <a href="https://github.com/twitter/finagle/blob/develop/finagle-http/src/main/scala/com/twitter/finagle/http/Request.scala"><code>c.t.finagle.http.Request</code></a> and <code>Rep</code> of type <a href="https://github.com/twitter/finagle/blob/develop/finagle-http/src/main/scala/com/twitter/finagle/http/Response.scala"><code>c.t.finagle.http.Response</code></a>.</p>
+
+<h3>Simple Http Client</h3>
+
+<p>Finatra includes a bare-bones HttpClient in <a href="https://github.com/twitter/finatra/tree/develop/httpclient"><code>finatra/httpclient</code></a></p>
+
+<p><nav>
+  <ul class="pager">
+    <li class="previous"><a href="/finatra/user-guide/build-new-http-server"><span aria-hidden="true">&larr;</span>&nbsp;Building&nbsp;a&nbsp;new&nbsp;Http&nbsp;Server</a></li>
+    <li class="next"><a href="/finatra/user-guide/files">Working&nbsp;with&nbsp;Files&nbsp;<span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav></p>
+
+  
+    <footer>
+      
+      
+    </footer>
+  
+</article>
+
 </div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
 
 
         </section>

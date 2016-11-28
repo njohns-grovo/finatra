@@ -1,0 +1,156 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>filters - com.twitter.inject.thrift.filters</title>
+          <meta name="description" content="filters - com.twitter.inject.thrift.filters" />
+          <meta name="keywords" content="filters com.twitter.inject.thrift.filters" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.twitter.inject.thrift.filters.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.twitter">twitter</a>.<a href="../../package.html" class="extype" name="com.twitter.inject">inject</a>.<a href="../package.html" class="extype" name="com.twitter.inject.thrift">thrift</a></p>
+        <h1>filters</h1><span class="permalink">
+      <a href="../../../../../index.html#com.twitter.inject.thrift.filters.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">filters</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.twitter.inject.thrift.filters.ThriftClientFilterBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ThriftClientFilterBuilderextendsAnyRef"></a>
+      <a id="ThriftClientFilterBuilder:ThriftClientFilterBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ThriftClientFilterBuilder.html"><span class="name">ThriftClientFilterBuilder</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.twitter.inject.thrift.filters.package@ThriftClientFilterBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.twitter.inject.thrift.filters.ThriftClientFilterChain" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ThriftClientFilterChain[Req&lt;:com.twitter.scrooge.ThriftStruct,Rep&lt;:com.twitter.scrooge.ThriftResponse[_]]extendsLogging"></a>
+      <a id="ThriftClientFilterChain[Req&lt;:ThriftStruct,Rep&lt;:ThriftResponse[_]]:ThriftClientFilterChain[Req,Rep]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ThriftClientFilterChain.html"><span class="name">ThriftClientFilterChain</span></a><span class="tparams">[<span name="Req">Req &lt;: <span class="extype" name="com.twitter.scrooge.ThriftStruct">ThriftStruct</span></span>, <span name="Rep">Rep &lt;: <span class="extype" name="com.twitter.scrooge.ThriftResponse">ThriftResponse</span>[_]</span>]</span><span class="result"> extends <a href="../../Logging.html" class="extype" name="com.twitter.inject.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.twitter.inject.thrift.filters.package@ThriftClientFilterChain[Req&lt;:com.twitter.scrooge.ThriftStruct,Rep&lt;:com.twitter.scrooge.ThriftResponse[_]]extendsLogging" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <a href="https://twitter.github.io/finagle/docs/index.html#com.twitter.finagle.Filter" class="extype" target="_top">com.twitter.finagle.Filter</a> chain builder which provides helper functions for installing and
+configuring common filters.</p><div class="fullcomment"><div class="comment cmt"><p>A <a href="https://twitter.github.io/finagle/docs/index.html#com.twitter.finagle.Filter" class="extype" target="_top">com.twitter.finagle.Filter</a> chain builder which provides helper functions for installing and
+configuring common filters.</p><p>Filters configured via the helper methods, e.g., <a href="ThriftClientFilterChain.html#withRetryPolicy(retryPolicy:com.twitter.finagle.service.RetryPolicy[(Req,com.twitter.util.Try[Rep])],retryMsg:((Req,com.twitter.util.Try[Rep]),com.twitter.util.Duration)=&gt;String):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withRetryPolicy">withRetryPolicy</a>, <a href="ThriftClientFilterChain.html#withBackupRequestFilter(quantile:Int,clipDuration:org.joda.time.Duration,history:org.joda.time.Duration,timer:com.twitter.util.Timer):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withBackupRequestFilter">withBackupRequestFilter</a>, <a href="ThriftClientFilterChain.html#withTimeout(duration:org.joda.time.Duration):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withTimeout">withTimeout</a>, <a href="ThriftClientFilterChain.html#withRequestTimeout(duration:org.joda.time.Duration):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withRequestTimeout">withRequestTimeout</a>,
+<a href="ThriftClientFilterChain.html#withMethodLatency:com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withMethodLatency">withMethodLatency</a>, <a href="ThriftClientFilterChain.html#withExceptionFilter[T&lt;:com.twitter.finagle.Filter[Req,Rep,Req,Rep]](implicitevidence$3:Manifest[T]):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#withExceptionFilter">withExceptionFilter</a>, will be composed in a specific order, (from top-down, assuming requests/responses
+enter and exit through the top):</p><p>+------------------------+
+| latencyFilter          |
++------------------------+
+| exceptionFilter        |
++------------------------+
+| backupRequestFilter    |
++------------------------+
+| timeoutFilter          |
++------------------------+
+| retryFilter            |
++------------------------+
+| requestTimeoutFilter   |
++------------------------+
+| concurrencyLimitFilter |
++------------------------+
+| filterChain            |
++------------------------+</p><p>where, the <code>filterChain</code> is the chain of filters added in the order of calls to <a href="ThriftClientFilterChain.html#filtered[T&lt;:com.twitter.finagle.Filter[Req,Rep,Req,Rep]](implicitevidence$1:Manifest[T]):com.twitter.inject.thrift.filters.ThriftClientFilterChain[Req,Rep]" class="extmbr" name="com.twitter.inject.thrift.filters.ThriftClientFilterChain#filtered">filtered</a>.
+</p></div><dl class="paramcmts block"><dt class="tparam">Req</dt><dd class="cmt"><p>Request type for this filter chain</p></dd><dt class="tparam">Rep</dt><dd class="cmt"><p>Response type for this filter chain</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><span class="extype" name="com.twitter.finagle.thrift.ThriftServiceIface">com.twitter.finagle.thrift.ThriftServiceIface</span></p></span><span class="cmt"><p><a href="ThriftClientFilterBuilder.html" class="extype" name="com.twitter.inject.thrift.filters.ThriftClientFilterBuilder">com.twitter.inject.thrift.filters.ThriftClientFilterBuilder</a></p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
