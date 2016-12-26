@@ -9,10 +9,11 @@ lazy val projectVersion = "2.8.0-SNAPSHOT"
 
 lazy val buildSettings = Seq(
   version := projectVersion,
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.12.1",
   ivyScala := ivyScala.value.map(_.copy(overrideScalaVersion = true)),
   fork in Test := true,
-  javaOptions in Test ++= travisTestJavaOptions
+  javaOptions in Test ++= travisTestJavaOptions,
+  crossScalaVersions := Seq("2.11.8", "2.12.1")
 )
 
 def travisTestJavaOptions: Seq[String] = {
@@ -51,14 +52,14 @@ lazy val versions = new {
   val logback = "1.1.7"
   val mockito = "1.9.5"
   val mustache = "0.8.18"
-  val nscalaTime = "1.6.0"
+  val nscalaTime = "2.16.0"
   val scalaCheck = "1.13.4"
   val scalaGuice = "4.1.0"
   val scalaTest = "3.0.0"
   val servletApi = "2.5"
   val slf4j = "1.7.21"
   val snakeyaml = "1.12"
-  val specs2 = "2.3.12"
+  val specs2 = "2.4.17"
 }
 
 lazy val scalaCompilerOptions = scalacOptions ++= Seq(
@@ -302,7 +303,7 @@ lazy val injectApp = (project in file("inject/inject-app"))
     libraryDependencies ++= Seq(
       "com.twitter" %% "util-core" % versions.utilVersion
     ),
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*TypeConverter.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*TypeConverter.*",
     publishArtifact in (Test, packageBin):= true,
     publishArtifact in (Test, packageDoc) := true,
     mappings in (Test, packageBin) ~= { fileMappings: Seq[(File, String)] =>
@@ -323,7 +324,7 @@ lazy val injectServer = (project in file("inject/inject-server"))
   .settings(
     name := "inject-server",
     moduleName := "inject-server",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*Ports.*;.*FinagleBuildRevision.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*Ports.*;.*FinagleBuildRevision.*",
     libraryDependencies ++= Seq(
       "com.twitter" %% "finagle-stats" % versions.finagleVersion,
       "com.twitter" %% "twitter-server" % versions.twitterserverVersion
@@ -347,7 +348,7 @@ lazy val injectSlf4j = (project in file("inject/inject-slf4j"))
   .settings(
     name := "inject-slf4j",
     moduleName := "inject-slf4j",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*LoggerModule.*;.*Slf4jBridgeUtility.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*LoggerModule.*;.*Slf4jBridgeUtility.*",
     libraryDependencies ++= Seq(
       "org.clapper" %% "grizzled-slf4j" % versions.grizzled,
       "org.slf4j" % "jcl-over-slf4j" % versions.slf4j,
@@ -375,7 +376,7 @@ lazy val injectThrift = (project in file("inject/inject-thrift"))
   .settings(
     name := "inject-thrift",
     moduleName := "inject-thrift",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
     libraryDependencies ++= Seq(
       "com.twitter" % "libthrift" % versions.libThrift,
       "com.twitter" %% "finagle-core" % versions.finagleVersion,
@@ -392,7 +393,7 @@ lazy val injectThriftClient = (project in file("inject/inject-thrift-client"))
   .settings(
     name := "inject-thrift-client",
     moduleName := "inject-thrift-client",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
     libraryDependencies ++= Seq(
       "com.twitter" %% "finagle-exp" % versions.finagleVersion,
       "com.twitter" %% "finagle-thrift" % versions.finagleVersion,
@@ -447,7 +448,7 @@ lazy val utils = project
   .settings(
     name := "finatra-utils",
     moduleName := "finatra-utils",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;com\\.twitter\\.finatra\\..*package.*;.*ClassUtils.*;.*WrappedValue.*;.*DeadlineValues.*;.*RichBuf.*;.*RichByteBuf.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;com\\.twitter\\.finatra\\..*package.*;.*ClassUtils.*;.*WrappedValue.*;.*DeadlineValues.*;.*RichBuf.*;.*RichByteBuf.*",
     libraryDependencies ++= Seq(
       "com.google.inject" % "guice" % versions.guice,
       "joda-time" % "joda-time" % versions.jodaTime,
@@ -477,7 +478,7 @@ lazy val jackson = project
   .settings(
     name := "finatra-jackson",
     moduleName := "finatra-jackson",
-    ScoverageKeys.coverageExcludedPackages := ".*CaseClassSigParser.*;.*JacksonToGuiceTypeConverter.*",
+//    ScoverageKeys.coverageExcludedPackages := ".*CaseClassSigParser.*;.*JacksonToGuiceTypeConverter.*",
     libraryDependencies ++= Seq(
       "com.fasterxml.jackson.core" % "jackson-databind" % versions.jackson,
       "com.fasterxml.jackson.datatype" % "jackson-datatype-joda" % versions.jackson,
@@ -502,7 +503,7 @@ lazy val http = project
   .settings(
     name := "finatra-http",
     moduleName := "finatra-http",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*ScalaObjectHandler.*;.*NonValidatingHttpHeadersResponse.*;com\\.twitter\\.finatra\\..*package.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*ScalaObjectHandler.*;.*NonValidatingHttpHeadersResponse.*;com\\.twitter\\.finatra\\..*package.*",
     libraryDependencies ++= Seq(
       "com.github.spullara.mustache.java" % "compiler" % versions.mustache,
       "com.twitter" %% "bijection-util" % versions.bijectionVersion,
@@ -557,7 +558,7 @@ lazy val slf4j = project
   .settings(
     name := "finatra-slf4j",
     moduleName := "finatra-slf4j",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;org\\.slf4j\\..*package.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;org\\.slf4j\\..*package.*",
     libraryDependencies ++= Seq(
       "com.twitter" %% "util-core" % versions.utilVersion
     )
@@ -570,7 +571,7 @@ lazy val thrift = project
   .settings(
     name := "finatra-thrift",
     moduleName := "finatra-thrift",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*;.*\\.thriftjava.*",
     libraryDependencies ++= Seq(
       "com.twitter" %% "finagle-core" % versions.finagleVersion,
       "com.twitter" %% "finagle-exp" % versions.finagleVersion,
@@ -657,8 +658,8 @@ lazy val twitterClone = (project in file("examples/twitter-clone"))
   .settings(exampleServerSettings)
   .settings(
     name := "twitter-clone",
-    moduleName := "twitter-clone",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;finatra\\.quickstart\\..*"
+    moduleName := "twitter-clone"
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;finatra\\.quickstart\\..*"
   ).dependsOn(
     http % "test->test;compile->compile",
     httpclient,
@@ -725,7 +726,7 @@ lazy val thriftExampleIdl = (project in file("examples/thrift-server/thrift-exam
   .settings(
     name := "thrift-example-idl",
     moduleName := "thrift-example-idl",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftscala.*",
     scroogeThriftIncludeFolders in Compile := Seq(
       file("thrift/src/main/thrift"),
       file("examples/thrift-server/thrift-example-idl/src/main/thrift"))
@@ -735,8 +736,8 @@ lazy val thriftExampleServer = (project in file("examples/thrift-server/thrift-e
   .settings(exampleServerSettings)
   .settings(
     name := "thrift-example-server",
-    moduleName := "thrift-example-server",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*ExceptionTranslationFilter.*"
+    moduleName := "thrift-example-server"
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*ExceptionTranslationFilter.*"
   ).dependsOn(
     thriftExampleIdl,
     slf4j,
@@ -750,7 +751,7 @@ lazy val thriftJavaExampleIdl = (project in file("examples/java-thrift-server/th
   .settings(
     name := "java-thrift-example-idl",
     moduleName := "java-thrift-example-idl",
-    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftjava.*",
+//    ScoverageKeys.coverageExcludedPackages := "<empty>;.*\\.thriftjava.*",
     scroogeLanguages in Compile := Seq("java"),
     scroogeThriftIncludeFolders in Compile := Seq(
       file("thrift/src/main/thrift"),

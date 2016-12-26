@@ -1,7 +1,8 @@
 resolvers ++= Seq(
   Classpaths.sbtPluginSnapshots,
   Classpaths.sbtPluginReleases,
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("snapshots"),
+  Resolver.url("scoverage-bintray", url("https://dl.bintray.com/sksamuel/sbt-plugins/"))
 )
 
 val branch = Process("git" :: "rev-parse" :: "--abbrev-ref" :: "HEAD" :: Nil).!!.trim
@@ -17,4 +18,4 @@ addSbtPlugin("pl.project13.scala" % "sbt-jmh" % "0.2.16")
 // sbt-scoverage 1.3.3 and 1.3.5 have bugs that result in 2.10 tests not being run.
 // See https://github.com/scoverage/sbt-scoverage/issues/146
 // and https://github.com/scoverage/sbt-scoverage/issues/161
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.2.0")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.0")
