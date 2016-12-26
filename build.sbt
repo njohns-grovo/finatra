@@ -566,6 +566,7 @@ lazy val slf4j = project
   .settings(
     name := "finatra-slf4j",
     moduleName := "finatra-slf4j",
+    crossScalaVersions := Seq("2.11.8", "2.12.1"),
     ScoverageKeys.coverageExcludedPackages := "<empty>;org\\.slf4j\\..*package.*",
     libraryDependencies ++= Seq(
       "com.twitter" %% "util-core" % versions.utilVersion
